@@ -1,0 +1,93 @@
+#:kivy 1.11.1
+<MyWidget>:
+    MDBoxLayout:
+        orientation: 'vertical'
+        padding: 20
+        spacing: 20
+        size_hint: (0.8, 0.8)
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+        
+        MDBoxLayout:
+            orientation: 'horizontal'
+            MDLabel:
+                text: 'Registrador:'
+            MDTextField:
+                id: registrador
+                text: '0'
+        
+        MDBoxLayout:
+            orientation: 'horizontal'
+            MDLabel:
+                text: 'Valor Leitura:'
+            MDLabel:
+                id: valor_leitura
+                text: '0'
+        
+        MDBoxLayout:
+            orientation: 'horizontal'
+            MDLabel:
+                text: 'Valor Escrita:'
+            MDTextField:
+                id: valor_escrita
+                text: '0'
+        
+        MDBoxLayout:
+            orientation: 'vertical'
+            
+            MDBoxLayout:
+                orientation: 'horizontal'
+                MDCheckbox:
+                    id: checkbox1
+                    active: True
+                    group: 'tipo_modbus'
+                MDLabel:
+                    text: 'Holding Register'
+            
+            MDBoxLayout:
+                orientation: 'horizontal'
+                MDCheckbox:
+                    id: checkbox2
+                    active: False
+                    group: 'tipo_modbus'
+                MDLabel:
+                    text: 'Input Register'
+            MDBoxLayout:
+                orientation: 'horizontal'
+                MDCheckbox:
+                    id: checkbox3
+                    active: True
+                    group: 'tipo_modbus'
+                MDLabel:
+                    text: 'Coil'
+            MDBoxLayout:
+                orientation: 'horizontal'
+                MDCheckbox:
+                    id: checkbox4
+                    active: False
+                    group: 'tipo_modbus'
+                MDLabel:
+                    text: 'Discrete Input'
+            MDBoxLayout:
+                orientation: 'horizontal'
+                MDCheckbox:
+                    id: checkbox5
+                    active: False
+                    group: 'tipo_modbus'
+                MDLabel:
+                    text: 'Write Single Register'
+        MDBoxLayout:
+            orientation: 'horizontal'
+            spacing: 10
+            MDRectangleFlatButton:
+                text: 'Conectar'
+                on_press: app.conectar()
+            MDRectangleFlatButton:
+                text: 'Desconectar'
+                on_press: app.desconectar()
+            MDRectangleFlatButton:
+                text: 'Ler'
+                on_press: app.ler()
+            MDRectangleFlatButton:
+                text: 'Escrever'
+                on_press: app.escrever()
+            
